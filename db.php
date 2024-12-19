@@ -25,7 +25,7 @@ function tryLogin($uname, $passwd) {
 		$result = $statement->execute(); 
 		$row=$statement->fetch();
 		$dbh=null;
-		echo $row;
+		echo $row[0];
 		return $row[0]; 
 	} catch (PDOException $e) { 
 		print "Error!" . $e->getMessage() . "<br/>"; 
