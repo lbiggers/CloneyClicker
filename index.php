@@ -1,6 +1,9 @@
 <?php
 require_once 'db.php';
 session_start();
+
+tryLogin('temp','temp');
+
 if(!isset($_SESSION['uname'])){
 	//header('LOCATION:login.php');
 	?>	
