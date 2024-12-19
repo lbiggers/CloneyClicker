@@ -20,7 +20,7 @@ function test($uname, $passwd){
 	$dbh = connectDB();
 	$statement = $dbh->query("SELECT score FROM users WHERE user = '$uname' AND pass = sha2('$passwd',256)");
 	$result = $statement->fetch();
-	print_r($result);
+	return $result;
 }
 
 function tryLogin($uname, $passwd) { 

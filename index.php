@@ -2,7 +2,9 @@
 require_once 'db.php';
 session_start();
 
-tryLogin('temp','temp');
+if(test('temp','temp')){
+	echo'success';
+}
 
 if(!isset($_SESSION['uname'])){
 	//header('LOCATION:login.php');
