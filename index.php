@@ -21,6 +21,7 @@ if(!isset($_SESSION['uname'])){
 }
 if(isset($_POST['login'])){
 	$_SESSION['uname'] = $_POST['uname'];
+	header('LOCATION:index.php');
 }
 ?>
 <!DOCTYPE html>
