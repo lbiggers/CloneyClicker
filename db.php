@@ -1,7 +1,7 @@
 <?php
 $host = 'localhost';
 $db = 'main';
-$user = 'root';
+$user = 'deqd';
 $pass = '';
 $charset = 'utf8mb4';
 
