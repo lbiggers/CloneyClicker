@@ -6,7 +6,7 @@
 	</head>
 	<body>
 		<h1>
-			Test
+			Test2
 			<?php echo'go php'; ?>
 		</h1>
 		<script src="script.js"></script>
