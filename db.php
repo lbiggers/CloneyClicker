@@ -23,9 +23,9 @@ function tryLogin($uname, $passwd) {
 		$statement->bindParam(":uname", $uname); 
 		$statement->bindParam(":passwd", $passwd); 
 		$result = $statement->execute(); 
-		$row=$statement->fetch(); 
-		$dbh=null; 
-	
+		$row=$statement->fetch();
+		$dbh=null;
+
 		return $row[0]; 
 	} catch (PDOException $e) { 
 		print "Error!" . $e->getMessage() . "<br/>"; 

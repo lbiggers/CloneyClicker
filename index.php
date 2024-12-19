@@ -36,5 +36,13 @@ if(isset($_POST['login'])){
 </head>
 <body>
 	<script src="script.js"></script>
+	<form method='post'>
+		<input type='submit' name='logout'>
+	</form>
+	<?php
+		if(isset($_POST['logout'])){
+			$_SESSION['uname'] = null;
+		}
+	?>
 </body>
 </html>
