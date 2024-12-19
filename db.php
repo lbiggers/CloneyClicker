@@ -16,6 +16,23 @@ function connectDB(){
 	return new PDO($dsn, $user, $pass, $options);
 }
 
+function tryLogin($uname, $passwd) { 
+	try { 
+		$dbh = connectDB(); 
+		$statement = $dbh->prepare("SELECT count(*) FROM users WHERE user = :uname AND pass = sha2(:passwd,256) "); 
+		$statement->bindParam(":uname", $uname); 
+		$statement->bindParam(":passwd", $passwd); 
+		$result = $statement->execute(); 
+		$row=$statement->fetch(); 
+		$dbh=null; 
+	
+		return $row[0]; 
+	} catch (PDOException $e) { 
+		print "Error!" . $e->getMessage() . "<br/>"; 
+		die(); 
+	} 
+}
+
 function newUser(){
 	try{
 		$dbh = connectDB();

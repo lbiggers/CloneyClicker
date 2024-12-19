@@ -20,8 +20,12 @@ if(!isset($_SESSION['uname'])){
 	<?php
 }
 if(isset($_POST['login'])){
-	$_SESSION['uname'] = $_POST['uname'];
-	header('LOCATION:index.php');
+	if(tryLogin($_POST['uname'], $_POST['passwd']) == 1){
+		$_SESSION['uname'] = $_POST['uname'];
+		header('LOCATION:index.php');
+	} else {
+		echo 'wrong info';
+	}
 }
 ?>
 <!DOCTYPE html>
