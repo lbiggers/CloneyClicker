@@ -5,10 +5,6 @@
 		<link rel="stylesheet" href="style.css">
 	</head>
 	<body>
-		<h1>
-			Test2
-			<?php echo'go php'; ?>
-		</h1>
 		<script src="script.js"></script>
 	</body>
 </html>
