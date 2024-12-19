@@ -19,7 +19,7 @@ function connectDB(){
 function tryLogin($uname, $passwd) { 
 	try { 
 		$dbh = connectDB(); 
-		$statement = $dbh->prepare("SELECT count(*) FROM users WHERE user = :uname AND pass = sha2(:passwd,256) "); 
+		$statement = $dbh->prepare("SELECT score FROM users WHERE user = :uname AND pass = sha2(:passwd,256) "); 
 		$statement->bindParam(":uname", $uname); 
 		$statement->bindParam(":passwd", $passwd); 
 		$statement->execute();
