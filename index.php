@@ -45,10 +45,12 @@ if(isset($_POST['login'])){
 			echo gaming($_SESSION['uname']);
 		}
 		?>
+		<div id='logout'>
 			<form method='post'>
 				<input type='submit' name='gaming' value='+1 Score'>
 				<input type='submit' name='logout' value='Logout'>
 			</form>
+		</div>
 		<?php
 	}
 	?>
