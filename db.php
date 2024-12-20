@@ -35,7 +35,7 @@ function tryLogin($uname, $passwd) {
 function newUser($uname, $passwd){
 	try{
 		$dbh = connectDB();
-		$statement = $dbh->prepare("INSERT INTO users (user, pass, score) VALUES (:uname, sha2(:passwd,256), 0"); 
+		$statement = $dbh->prepare("INSERT INTO users (user, pass, score) VALUES (:uname, sha2(:passwd,256), 0)"); 
 		$statement->bindParam(":uname", $uname);
 		$statement->bindParam(":passwd", $passwd);
 		try { $statement->execute(); }
