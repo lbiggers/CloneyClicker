@@ -66,7 +66,7 @@ if(isset($_POST['login'])){
 
 		function upScore(){
 			score++;
-			counter.innerText = score;
+			counter.innerText = "<mark>"+score+"</mark>";
 			save.value = score;
 		}
 	</script>
