@@ -50,8 +50,8 @@ if(isset($_POST['login'])){
 				<input type='submit' name='logout' value='Logout'>
 			</form>
 		</div>
-		<div id='game'>
-			<img src='./images/cookie.png' alt='cookie' onclick='upScore()'>
+		<div id='game' onclick='upScore()'>
+			<img src='./images/cookie.png' alt='cookie'>
 			<?php
 		echo '<span id="counter"><mark>'.$score.'</mark></span>';
 			?>
