@@ -16,9 +16,7 @@ if(!isset($_SESSION['uname'])){
 		</form>
 	<?php
 } else {
-	?>
-		<h1><?php $_SESSION['score'] ?></h1>
-	<?php
+	echo $_SESSION['score'];
 }
 if(isset($_POST['login'])){
 	$login = tryLogin($_POST['uname'], $_POST['passwd']);
