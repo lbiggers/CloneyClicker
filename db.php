@@ -25,7 +25,7 @@ function tryLogin($uname, $passwd) {
 		$statement->execute();
 		$result = $statement->fetch();
 
-		return $result[0]; 
+		return $result['score'];
 	} catch (PDOException $e) { 
 		print "Error!" . $e->getMessage() . "<br/>"; 
 		die(); 

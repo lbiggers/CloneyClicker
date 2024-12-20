@@ -2,7 +2,10 @@
 require_once 'db.php';
 session_start();
 
-echo tryLogin('temp','temp');
+$tmp = tryLogin('temp','temp');
+if($tmp){
+	echo $tmp;
+} else { echo'fail'; }
 
 if(!isset($_SESSION['uname'])){
 	//header('LOCATION:login.php');
@@ -40,7 +43,7 @@ if(isset($_POST['login'])){
 <body>
 	<script src="script.js"></script>
 	<form method='post'>
-		<input type='submit' name='logout'>
+		<input type='submit' name='logout' value='Logout'>
 	</form>
 	<?php
 		if(isset($_POST['logout'])){
