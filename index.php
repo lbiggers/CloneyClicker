@@ -23,7 +23,7 @@ if(isset($_POST['login'])){
 	if($login){
 		$_SESSION['uname'] = $_POST['uname'];
 		$_SESSION['score'] = $login['score'];
-		header('LOCATION:index.php');
+		header('REFRESH:0');
 	} else {
 		echo 'wrong info';
 	}
@@ -43,6 +43,7 @@ if(isset($_POST['login'])){
 	<?php
 		if(isset($_POST['logout'])){
 			$_SESSION['uname'] = null;
+			header('REFRESH:0');
 		}
 	?>
 </body>
