@@ -46,7 +46,7 @@ if(isset($_POST['login'])){
 		?>
 		<div id='logout'>
 			<form method='post'>
-				<?php echo "<input type='hidden' name='newScore' value='$score'>"?>
+				<?php echo "<input id='saveScore' type='hidden' name='newScore' value='$score'>"?>
 				<input type='submit' name='logout' value='Logout'>
 			</form>
 		</div>
@@ -61,11 +61,13 @@ if(isset($_POST['login'])){
 	?>
 	<script>
 		var counter = document.getElementById('counter');
+		var save = document.getElementById('saveScore');
 		var score = parseInt(counter.innerText);
 
 		function upScore(){
 			score++;
 			counter.innerText = score;
+			save.value = score;
 		}
 	</script>
 	<!--script src="script.js"></script-->
