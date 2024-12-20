@@ -17,8 +17,6 @@ body {
 	text-align: center;
 } #game img {
 	display: block;
-	width: 75%;
-	height: 75%;
 } #game span {
 	font-size: 128pt;
 	font-weight: bold;
