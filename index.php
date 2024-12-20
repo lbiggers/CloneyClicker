@@ -58,7 +58,7 @@ if(isset($_POST['login'])){
 		<div id='game' onclick='upScore()'>
 			<img src='./images/cookie.png' alt='cookie'>
 			<?php
-		echo '<span id="counter"><mark>'.$score.'</mark></span>';
+		echo '<span id="counter">'.$score.'</span>';
 			?>
 		</div>
 		<?php
@@ -71,7 +71,7 @@ if(isset($_POST['login'])){
 
 		function upScore(){
 			score++;
-			counter.innerHTML = "<mark>"+score+"</mark>";
+			counter.innerHTML = score;
 			save.value = score;
 		}
 	</script>
