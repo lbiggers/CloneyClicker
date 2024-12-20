@@ -17,7 +17,13 @@ if(!isset($_SESSION['uname'])){
 	<?php
 } else {
 	echo $_SESSION['score'];
+	?>
+		<form method='post'>
+			<input type='submit' name='logout' value='Logout'>
+		</form>
+	<?php
 }
+
 if(isset($_POST['login'])){
 	$login = tryLogin($_POST['uname'], $_POST['passwd']);
 	if($login){
@@ -28,6 +34,11 @@ if(isset($_POST['login'])){
 		echo 'wrong info';
 	}
 }
+
+if(isset($_POST['logout'])){
+	$_SESSION['uname'] = null;
+	header('REFRESH:0');
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -37,14 +48,5 @@ if(isset($_POST['login'])){
 </head>
 <body>
 	<script src="script.js"></script>
-	<form method='post'>
-		<input type='submit' name='logout' value='Logout'>
-	</form>
-	<?php
-		if(isset($_POST['logout'])){
-			$_SESSION['uname'] = null;
-			header('REFRESH:0');
-		}
-	?>
 </body>
 </html>
