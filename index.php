@@ -12,7 +12,7 @@ if(isset($_POST['login'])){
 	if($login){
 		$_SESSION['uname'] = $_POST['uname'];
 		$_SESSION['score'] = $login['score'];
-		header('REFRESH:0');
+		//header('REFRESH:0');
 	} else {
 		echo 'invalid user';
 	}
