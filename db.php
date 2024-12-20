@@ -32,6 +32,20 @@ function tryLogin($uname, $passwd) {
 	} 
 }
 
+function newUser($uname, $passwd){
+	try{
+		$dbh = connectDB();
+		$statement = $dbh->prepare("INSERT INTO users (user, pass, score) VALUES (:uname, sha2(':passwd',256), 0"); 
+		$statement->bindParam(":uname", $uname);
+		$statement->bindParam(":passwd", $passwd);
+		try { $statement->execute(); }
+		catch (Exception $e) { echo 'username in use'; }
+
+	} catch (PDOException $e) {
+		echo "Error: '". $e->getMessage() ."'";
+	}
+}
+
 function getScore($uname){
 	try { 
 		$dbh = connectDB();
@@ -56,15 +70,6 @@ function updateScore($uname,$score): void{
 	} catch (PDOException $e) { 
 		print "Error!" . $e->getMessage() . "<br/>"; 
 		die(); 
-	}
-}
-
-function newUser(){
-	try{
-		$dbh = connectDB();
-		echo $dbh->query("select * from users;");
-	} catch (PDOException $e) {
-		echo "Error: '". $e->getMessage() ."'";
 	}
 }
 ?>

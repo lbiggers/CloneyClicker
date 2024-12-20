@@ -18,6 +18,7 @@ if(isset($_POST['login'])){
 		echo 'invalid user';
 	}
 }
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -39,6 +40,8 @@ if(isset($_POST['login'])){
 				<br>
 				<input type='hidden' name='gaming'>
 				<input type='submit' name='login' value='Login'>
+				or
+				<input type='submit' name='register' value='Create Account'>
 			</form>
 		<?php
 	} else {
