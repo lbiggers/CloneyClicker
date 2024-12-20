@@ -2,11 +2,6 @@
 require_once 'db.php';
 session_start();
 
-$tmp = tryLogin('temp','temp');
-if($tmp){
-	echo $tmp;
-} else { echo'fail'; }
-
 if(!isset($_SESSION['uname'])){
 	//header('LOCATION:login.php');
 	?>	
@@ -22,12 +17,14 @@ if(!isset($_SESSION['uname'])){
 	<?php
 } else {
 	?>
-		<h1>success</h1>
+		<h1><?php $_SESSION['score'] ?></h1>
 	<?php
 }
 if(isset($_POST['login'])){
-	if(tryLogin($_POST['uname'], $_POST['passwd']) == 1){
+	$login = tryLogin($_POST['uname'], $_POST['passwd']);
+	if($login){
 		$_SESSION['uname'] = $_POST['uname'];
+		$_SESSION['score'] = $login['score'];
 		header('LOCATION:index.php');
 	} else {
 		echo 'wrong info';

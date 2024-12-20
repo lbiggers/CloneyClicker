@@ -19,13 +19,13 @@ function connectDB(){
 function tryLogin($uname, $passwd) { 
 	try { 
 		$dbh = connectDB(); 
-		$statement = $dbh->prepare("SELECT score FROM users WHERE user = :uname AND pass = sha2(:passwd,256) "); 
+		$statement = $dbh->prepare("SELECT user, score FROM users WHERE user = :uname AND pass = sha2(:passwd,256) "); 
 		$statement->bindParam(":uname", $uname); 
 		$statement->bindParam(":passwd", $passwd); 
 		$statement->execute();
 		$result = $statement->fetch();
 
-		return $result['score'];
+		return $result;
 	} catch (PDOException $e) { 
 		print "Error!" . $e->getMessage() . "<br/>"; 
 		die(); 
