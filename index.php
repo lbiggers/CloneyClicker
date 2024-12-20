@@ -51,16 +51,13 @@ if(isset($_POST['login'])){
 		?>
 		<div id='logout'>
 			<form method='post'>
-				<?php echo "<input id='saveScore' type='hidden' name='newScore' value='$score'>"?>
 				<input type='submit' name='logout' value='Logout'>
 			</form>
 		</div>
 		<form method='post'>
 			<div id='game'>
 				<img src='./images/cookie.png' alt='cookie'>
-				<?php
-					echo "<span id='counter'>$score</span>"; 
-				?>
+				<?php echo "<span id='counter'>$score</span>"; ?>
 				<input id='click' type='submit' name='clicked' value=''>
 			</div>
 			<?php
