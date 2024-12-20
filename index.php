@@ -60,13 +60,12 @@ if(isset($_POST['login'])){
 				<img src='./images/cookie.png' alt='cookie'>
 				<?php
 					echo "<span id='counter'>$score</span>"; 
-					echo "<input type='hidden' name='upScore' value='$score' onsubmit='this.value = parseInt(this.value) + 1'>";
 				?>
 				<input id='click' type='submit' name='clicked' value=''>
 			</div>
 			<?php
 				if(isset($_POST['clicked'])){
-					updateScore($_SESSION['uname'], $_POST['upScore']);
+					upScore($_SESSION['uname']);
 					$_POST['clicked'] = null;
 				}
 			?>

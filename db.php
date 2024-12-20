@@ -63,6 +63,17 @@ function getScore($uname){
 		die(); 
 	}
 }
+function upScore($uname): void{
+	try { 
+		$dbh = connectDB();
+		$statement = $dbh->prepare("UPDATE users SET score = score + 1 WHERE user = :uname");
+		$statement->bindParam(":uname", $uname);
+		$statement->execute();
+	} catch (PDOException $e) { 
+		print "Error!" . $e->getMessage() . "<br/>"; 
+		die(); 
+	}
+}
 
 function updateScore($uname,$score): void{
 	try { 
