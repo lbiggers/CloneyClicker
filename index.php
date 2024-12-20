@@ -29,7 +29,7 @@ if(isset($_POST['login'])){
 	if(!isset($_SESSION['uname'])){
 		//header('LOCATION:login.php');
 		?>	
-			<form method='post'>
+			<form method='post' id='loginForm'>
 				<label>Username:</label>
 				<input type='text' name='uname'>
 				<br>
