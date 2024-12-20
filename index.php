@@ -60,7 +60,7 @@ if(isset($_POST['login'])){
 	?>
 	<script>
 		var counter = document.getElementById('counter');
-		var score = counter.value;
+		var score = parseInt(counter.value);
 
 		function upScore(){
 			score++;
