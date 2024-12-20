@@ -55,26 +55,25 @@ if(isset($_POST['login'])){
 				<input type='submit' name='logout' value='Logout'>
 			</form>
 		</div>
-		<div id='game' onclick='upScore()'>
-			<img src='./images/cookie.png' alt='cookie'>
+		<form method='post'>
+			<div id='game'>
+				<img src='./images/cookie.png' alt='cookie'>
+				<?php
+					echo "<span id='counter'>$score</span>"; 
+					echo "<input type='hidden' name='upScore' value='$score' onsubmit='this.value = parseInt(this.value) + 1'>";
+				?>
+				<input id='click' type='submit' name='clicked'>
+			</div>
 			<?php
-		echo '<span id="counter">'.$score.'</span>';
+				if(isset($_POST['clicked'])){
+					updateScore($_SESSION['uname'], $_POST['upScore']);
+					$_POST['clicked'] = null;
+				}
 			?>
-		</div>
+		</form>
 		<?php
 	}
 	?>
-	<script>
-		var counter = document.getElementById('counter');
-		var save = document.getElementById('saveScore');
-		var score = parseInt(counter.innerText);
-
-		function upScore(){
-			score++;
-			counter.innerHTML = score;
-			save.value = score;
-		}
-	</script>
-	<!--script src="script.js"></script-->
+	<script src="script.js"></script>
 </body>
 </html>
