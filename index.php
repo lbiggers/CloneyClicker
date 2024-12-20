@@ -62,7 +62,7 @@ if(isset($_POST['login'])){
 					echo "<span id='counter'>$score</span>"; 
 					echo "<input type='hidden' name='upScore' value='$score' onsubmit='this.value = parseInt(this.value) + 1'>";
 				?>
-				<input id='click' type='submit' name='clicked'>
+				<input id='click' type='submit' name='clicked' value=''>
 			</div>
 			<?php
 				if(isset($_POST['clicked'])){
