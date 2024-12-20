@@ -42,7 +42,8 @@ if(isset($_POST['login'])){
 		<?php
 	} else {
 		if(isset($_POST['gaming'])){
-			echo gaming($_SESSION['uname']);
+			$score = getScore($_SESSION['uname']);
+			echo '<h1 id="counter" value="'.$score.'">'.$score.'</h1>';
 		}
 		?>
 		<div id='logout'>
@@ -51,9 +52,22 @@ if(isset($_POST['login'])){
 				<input type='submit' name='logout' value='Logout'>
 			</form>
 		</div>
+		<div id='game'>
+			<img src='./images/cookie.png' onclick='upScore()'>
+		</div>
 		<?php
 	}
 	?>
-	<script src="script.js"></script>
+	<script>
+		var counter = document.getElementById('counter');
+		var score = counter.value;
+
+		function upScore(){
+			score++;
+			counter.value = score;
+			counter.innerText = score;
+		}
+	</script>
+	<!--script src="script.js"></script-->
 </body>
 </html>

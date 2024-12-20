@@ -32,18 +32,27 @@ function tryLogin($uname, $passwd) {
 	} 
 }
 
-function gaming($uname){
+function getScore($uname){
 	try { 
 		$dbh = connectDB();
-		$statement = $dbh->prepare("UPDATE users SET score = score + 1 WHERE user = :uname");
-		$statement->bindParam(":uname", $uname);
-		$statement->execute();
 
 		$statement = $dbh->prepare("SELECT score FROM users WHERE user = :uname");
 		$statement->bindParam(":uname", $uname);
 		$statement->execute();
 		
 		return $statement->fetch()['score'];
+	} catch (PDOException $e) { 
+		print "Error!" . $e->getMessage() . "<br/>"; 
+		die(); 
+	}
+}
+
+function updateScore($uname,$score): void{
+	try { 
+		$dbh = connectDB();
+		$statement = $dbh->prepare("UPDATE users SET score = $score WHERE user = :uname");
+		$statement->bindParam(":uname", $uname);
+		$statement->execute();
 	} catch (PDOException $e) { 
 		print "Error!" . $e->getMessage() . "<br/>"; 
 		die(); 
