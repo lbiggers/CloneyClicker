@@ -3,7 +3,6 @@ require_once 'db.php';
 session_start();
 
 if(isset($_POST['logout'])){
-	updateScore($_SESSION['uname'], $_POST['newScore']);
 	$_SESSION['uname'] = null;
 	header('REFRESH:0');
 }
