@@ -18,7 +18,6 @@ if(isset($_POST['login'])){
 		echo 'invalid user';
 	}
 }
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -44,6 +43,9 @@ if(isset($_POST['login'])){
 				<input type='submit' name='register' value='Create Account'>
 			</form>
 		<?php
+		if(isset($_POST['register'])){
+			newUser($_POST['uname'],$_POST['passwd']);
+		}
 	} else {
 		$score = getScore($_SESSION['uname']);
 		?>
