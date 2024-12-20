@@ -36,6 +36,7 @@ if(isset($_POST['login'])){
 				<label>Password:</label>
 				<input type='password' name='passwd'>
 				<br>
+				<input type='hidden' name='gaming'>
 				<input type='submit' name='login' value='Login'>
 			</form>
 		<?php
