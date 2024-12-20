@@ -53,7 +53,7 @@ if(isset($_POST['login'])){
 		<div id='game'>
 			<img src='./images/cookie.png' alt='cookie' onclick='upScore()'>
 			<?php
-		echo '<h1 id="counter">'.$score.'</h1>';
+		echo '<h1 id="counter"><mark>'.$score.'</mark></h1>';
 			?>
 		</div>
 		<?php
