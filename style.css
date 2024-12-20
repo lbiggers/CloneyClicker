@@ -8,3 +8,8 @@ body {
 	float: right;
 	text-align: right;
 }
+
+#game {
+	margin-left: auto;
+	margin-right: auto;
+}
