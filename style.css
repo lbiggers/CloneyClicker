@@ -8,6 +8,9 @@ body {
 	float: right;
 	text-align: right;
 	z-index: 2;
+} #logout input {
+	width: 80px;
+	height: 90px;
 }
 
 #game {
