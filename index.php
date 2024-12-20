@@ -3,6 +3,7 @@ require_once 'db.php';
 session_start();
 
 if(isset($_POST['logout'])){
+	updateScore($_SESSION['uname'], $_POST['newScore']);
 	$_SESSION['uname'] = null;
 	header('REFRESH:0');
 }
@@ -45,7 +46,7 @@ if(isset($_POST['login'])){
 		?>
 		<div id='logout'>
 			<form method='post'>
-				<input type='submit' name='gaming' value='+1 Score'>
+				<?php echo "<input type='hidden' name='newScore' value='$score'>"?>
 				<input type='submit' name='logout' value='Logout'>
 			</form>
 		</div>
