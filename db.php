@@ -40,10 +40,10 @@ function newUser($uname, $passwd){
 		$statement->bindParam(":passwd", $passwd);
 		try { $statement->execute(); }
 		catch (Exception $e) {
-			echo '<script>alert("username in use");<script>';
+			echo '<script>alert("username in use");</script>';
 			die();
 		}
-		echo "<script>alert('account \"$uname\" registered! Now log in.')</script>";
+		echo "<script>alert('account \"$uname\" registered! Now log in.');</script>";
 	} catch (PDOException $e) {
 		echo "Error: '". $e->getMessage() ."'";
 	}
