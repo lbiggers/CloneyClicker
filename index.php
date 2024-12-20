@@ -2,26 +2,9 @@
 require_once 'db.php';
 session_start();
 
-if(!isset($_SESSION['uname'])){
-	//header('LOCATION:login.php');
-	?>	
-		<form method='post'>
-			<label>Username:</label>
-			<input type='text' name='uname'>
-			<br>
-			<label>Password:</label>
-			<input type='password' name='passwd'>
-			<br>
-			<input type='submit' name='login' value='Login'>
-		</form>
-	<?php
-} else {
-	echo $_SESSION['score'];
-	?>
-		<form method='post'>
-			<input type='submit' name='logout' value='Logout'>
-		</form>
-	<?php
+if(isset($_POST['logout'])){
+	$_SESSION['uname'] = null;
+	header('REFRESH:0');
 }
 
 if(isset($_POST['login'])){
@@ -31,13 +14,8 @@ if(isset($_POST['login'])){
 		$_SESSION['score'] = $login['score'];
 		header('REFRESH:0');
 	} else {
-		echo 'wrong info';
+		echo 'invalid user';
 	}
-}
-
-if(isset($_POST['logout'])){
-	$_SESSION['uname'] = null;
-	header('REFRESH:0');
 }
 ?>
 <!DOCTYPE html>
@@ -47,6 +25,32 @@ if(isset($_POST['logout'])){
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
+	<?php
+	if(!isset($_SESSION['uname'])){
+		//header('LOCATION:login.php');
+		?>	
+			<form method='post'>
+				<label>Username:</label>
+				<input type='text' name='uname'>
+				<br>
+				<label>Password:</label>
+				<input type='password' name='passwd'>
+				<br>
+				<input type='submit' name='login' value='Login'>
+			</form>
+		<?php
+	} else {
+		if(isset($_POST['gaming'])){
+			echo gaming($_SESSION['uname']);
+		}
+		?>
+			<form method='post'>
+				<input type='submit' name='gaming' value='+1 Score'>
+				<input type='submit' name='logout' value='Logout'>
+			</form>
+		<?php
+	}
+	?>
 	<script src="script.js"></script>
 </body>
 </html>
