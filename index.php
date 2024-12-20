@@ -41,10 +41,8 @@ if(isset($_POST['login'])){
 			</form>
 		<?php
 	} else {
-		if(isset($_POST['gaming'])){
-			$score = getScore($_SESSION['uname']);
-			echo '<h1 id="counter" value="'.$score.'">'.$score.'</h1>';
-		}
+		$score = getScore($_SESSION['uname']);
+		echo '<h1 id="counter" value="'.$score.'">'.$score.'</h1>';
 		?>
 		<div id='logout'>
 			<form method='post'>
