@@ -10,6 +10,9 @@ body {
 }
 
 #game {
+	width: fit-content;
 	margin-left: auto;
 	margin-right: auto;
+} #game img {
+	display: block;
 }
