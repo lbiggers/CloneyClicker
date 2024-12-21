@@ -44,6 +44,7 @@ if(isset($_POST['login'])){
 		<?php
 		if(isset($_POST['register'])){
 			newUser($_POST['uname'],$_POST['passwd']);
+			//header('LOCATION:register.php');
 		}
 	} else {
 		$score = getScore($_SESSION['uname']);
