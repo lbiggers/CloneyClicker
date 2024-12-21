@@ -27,8 +27,8 @@ body {
 	text-align: center;
 } #cookie {
 	/*display: block;*/
-	width: 500px;
-	height: 500px;
+	max-width: 500px;
+	max-height: 500px;
 	margin-left: auto;
 	margin-right: auto;
 } #game span {
