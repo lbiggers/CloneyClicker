@@ -55,7 +55,7 @@ if(isset($_POST['login'])){
 		</div>
 		<form method='post'>
 			<div id='game'>
-				<img src='./images/cookie.png' alt='cookie'>
+				<img id='cookie' src='./images/cookie.png' alt='cookie'>
 				<?php echo "<span id='counter'>$score</span>"; ?>
 				<input id='click' type='submit' name='clicked' value=''>
 			</div>
